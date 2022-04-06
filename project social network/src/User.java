@@ -3,6 +3,7 @@ public class User {
     public String name;
     public String login;
     public String password;
+    public boolean justFriends;
 
     public int age;
     public String address;
@@ -10,11 +11,14 @@ public class User {
     public ArrayList<String> msgs = new ArrayList<String>();
     public ArrayList<String> friends = new ArrayList<String>();
     public ArrayList<String> invites = new ArrayList<String>();
+    public ArrayList<String> comunitys = new ArrayList<String>();
+    public ArrayList<String> news = new ArrayList<String>();
 
     public User(String name, String login, String password){
         this.name = name;
         this.login = login;
         this.password = password;
+        this.justFriends = false;
     }
 
     public void setName(String name){
@@ -32,6 +36,10 @@ public class User {
     public void setAddress(String address){
         this.address = address;
     }
+    public void setJustFriends(boolean x){
+        this.justFriends = x;
+    }
+
 
     public void getMessage(String msg){
         this.msgs.add(msg);
@@ -42,9 +50,25 @@ public class User {
     public void inviteFriend(String name){
         this.invites.add(name);
     }
+    public void getNews(String a){
+        this.news.add(a);
+    }
+    public void addCommunity(String a){
+        this.comunitys.add(a);
+    }
+
     public boolean searchInvite(String name){
         for(int i = 0; i < invites.size() ; i++){
             String curr = invites.get(i);
+            if(name.equals(curr)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean searchFriend(String name){
+        for(int i = 0; i < friends.size() ; i++){
+            String curr = friends.get(i);
             if(name.equals(curr)){
                 return true;
             }
@@ -72,5 +96,18 @@ public class User {
         }
         System.out.println("Fim da lista");
     }
+    public void showCommunities(){
+        System.out.println("Lista de comunidades de " + this.name);
+        for(int i = 0; i < comunitys.size() ; i++){
+            System.out.println(i+ " - " + comunitys.get(i));
+        }
+    }
 
+    public void showNews(){
+        System.out.println("Feed de noticias de " + this.name);
+        for(int i = 0; i < news.size() ; i++){
+            System.out.println(news.get(i));
+        }
+        System.out.println("Fim da lista");
+    }
 }
