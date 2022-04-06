@@ -1,7 +1,0 @@
-login ?
-cadastrar?
-
-login -> opções: edit user/ add friend/ send msg/ creat comunity/ add member/ search user/ delete my account/ send msg in feed/ logout
-cadastrar: cadastrar
-
-
