@@ -9,7 +9,7 @@ public class Main {
         String name = input22.nextLine();
         int id = - 1;
         for(int i = 0; i < users.size(); i++) {
-            String curr = users.get(i).name;
+            String curr = users.get(i).getName();
             if (name.equals(curr)) {
                 id = i;
             }
@@ -22,7 +22,7 @@ public class Main {
         String login = input22.nextLine();
         int id = - 1;
         for(int i = 0; i < users.size(); i++) {
-            String curr = users.get(i).login;
+            String curr = users.get(i).getLogin();
             if (login.equals(curr)) {
                 id = i;
             }
@@ -33,7 +33,7 @@ public class Main {
         Scanner input22 = new Scanner(System.in);
         System.out.print("Type the password: ");
         String password = input22.next();
-        return password.equals(x.password);
+        return password.equals(x.getPassword());
     }
 
     public static void main(String[] args) {
@@ -113,8 +113,8 @@ public class Main {
                                 System.out.println("USER DOESN'T EXIST!");
                                 continue;
                             }
-                            String name2 = users.get(id2).name;
-                            String name1 = users.get(id).name;
+                            String name2 = users.get(id2).getName();
+                            String name1 = users.get(id).getName();
                             if(users.get(id).searchInvite(name2)){
                                 users.get(id).addUser(name2);
                                 users.get(id2).addUser(name1);
@@ -142,7 +142,7 @@ public class Main {
                             nameCommunity = input3.nextLine();
                             System.out.print("Type the description: ");
                             description = input3.nextLine();
-                            Comunity aux = new Comunity(nameCommunity,users.get(id).name,description);
+                            Comunity aux = new Comunity(nameCommunity,users.get(id),description);
                             comunities.add(aux);
                             users.get(id).addCommunity(nameCommunity);
                             System.out.println("The community was created! \n ");
@@ -161,7 +161,7 @@ public class Main {
                                     System.out.println("USER DOESN'T EXIST!");
                                     continue;
                                 }
-                                users.get(id3).addCommunity(comunities.get(id2).name);
+                                users.get(id3).addCommunity(comunities.get(id2).getName());
                                 System.out.println("The user was added! \n ");
                             }else{
                                 Scanner input6 = new Scanner(System.in);
@@ -171,7 +171,7 @@ public class Main {
                             }
                         } else if (op2 == 6) {
                             System.out.println("  Searching my user  \n");
-                            System.out.println("Nome: " + users.get(id).name +"| Age: "+users.get(id).age +"| Address: "+users.get(id).address);
+                            System.out.println("Nome: " + users.get(id).getName() +"| Age: "+users.get(id).getAge() +"| Address: "+users.get(id).getAddress());
                             users.get(id).showFriends();
                             users.get(id).showNews();
                             users.get(id).showMessages();
@@ -199,7 +199,7 @@ public class Main {
                                 System.out.println("USER DOESN'T EXIST!");
                                 continue;
                             }
-                            if(users.get(id3).justFriends && !users.get(id3).searchFriend(users.get(id).name)){
+                            if(users.get(id3).justFriends && !users.get(id3).searchFriend(users.get(id).getName())){
                                 System.out.println("The user Account is private!");
                             }else{
                                 users.get(id3).showNews();

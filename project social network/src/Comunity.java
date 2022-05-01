@@ -1,20 +1,28 @@
 import java.util.ArrayList;
-public class Comunity {
-    public String name;
-    public String creator_user;
-    public String description;
-    public ArrayList<String> members = new ArrayList<String>();
-    public ArrayList<String> news = new ArrayList<String>();
+public class Comunity{
+    private String name;
+    private String creator_user;
+    private String description;
+    private ArrayList<Member> members = new ArrayList<Member>();
+    private ArrayList<String> news = new ArrayList<String>();
 
-    public Comunity(String name, String creator_user, String description){
+    public Comunity(String name, User creator_user, String description){
         this.name = name;
-        this.creator_user = creator_user;
+        this.creator_user = creator_user.getName();
         this.description = description;
-        this.members.add(creator_user);
+        Member creator = new Moderator(creator_user.getName(),creator_user.getLogin());
+        this.addUser(creator);
     }
-    public void addUser(String name){
-        this.members.add(name);
+    public String getName(){
+        return this.name;
     }
+
+    public void addUser(Member member){
+        this.members.add(member);
+    }
+//    public void deleteUser(String login){
+//        this.members.add(name);
+//    }
     public void addNews(String x){
         this.news.add(x);
     }

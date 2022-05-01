@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 public class User {
-    public String name;
-    public String login;
-    public String password;
+    private String name;
+    private String login;
+    private String password;
     public boolean justFriends;
 
-    public int age;
-    public String address;
+    private int age;
+    private String address;
 
     public ArrayList<String> msgs = new ArrayList<String>();
     public ArrayList<String> friends = new ArrayList<String>();
@@ -40,6 +40,21 @@ public class User {
         this.justFriends = x;
     }
 
+    public String getName(){
+        return this.name;
+    }
+    public String getLogin(){
+        return this.login;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    public int getAge(){
+        return this.age;
+    }
+    public String getAddress(){
+        return this.address;
+    }
 
     public void getMessage(String msg){
         this.msgs.add(msg);
