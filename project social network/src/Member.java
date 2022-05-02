@@ -5,4 +5,7 @@ public abstract class Member {
         this.name = name;
         this.login = login;
     }
+    public String getLogin(){
+        return this.login;
+    }
 }

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Comunity{
+public class Comunity implements general{
     private String name;
     private String creator_user;
     private String description;
@@ -16,7 +16,22 @@ public class Comunity{
     public String getName(){
         return this.name;
     }
-
+    public boolean isModerator(int id){
+        if(members.get(id) instanceof Normal){
+            System.out.println("You're not a moderator");
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public int searchMember(String login){
+        for(int i = 0; i < this.members.size(); i++){
+            if(login == members.get(i).getLogin()){
+                return i;
+            }
+        }
+        return -1;
+    }
     public void addUser(Member member){
         this.members.add(member);
     }
@@ -29,7 +44,7 @@ public class Comunity{
 
     public void showNews(){
         System.out.println("News of " + this.name);
-        for(int i = 0; i < news.size(); i++){
+        for(int i = 0; i < this.news.size(); i++){
             System.out.println(i + "- " + this.news.get(i));
         }
         System.out.println("End of the list");

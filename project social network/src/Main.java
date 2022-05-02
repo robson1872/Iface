@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Main {
-    public static int getIdByName(ArrayList<User> users){
+public abstract class Main {
+    public static int getIdByName(ArrayList< ? extends general > users){
         Scanner input22 = new Scanner(System.in);
-        System.out.print("Type the name user: ");
+        System.out.print("Type the name: ");
         String name = input22.nextLine();
         int id = - 1;
         for(int i = 0; i < users.size(); i++) {
@@ -118,10 +118,10 @@ public class Main {
                             if(users.get(id).searchInvite(name2)){
                                 users.get(id).addUser(name2);
                                 users.get(id2).addUser(name1);
-                                System.out.println(name2 + " agora é amigo de " + name1);
+                                System.out.println(name2 + " now is friend of " + name1);
                             }else{
                                 users.get(id2).inviteFriend(name1);
-                                System.out.println("Convite enviado para " + name2);
+                                System.out.println("The invite was send to " + name2);
                             }
                         } else if (op2 == 3){
                             System.out.println("  Sending a message  \n");
@@ -149,19 +149,28 @@ public class Main {
                         } else if (op2 == 5) {// comunities
                             System.out.println("Choose one of the communities \n");
                             users.get(id).showCommunities();
-                            System.out.print("Type: ");
-                            int id2 = input3.nextInt();
+                            int id2 = getIdByName(comunities);
+                            if(id2 == -1){
+                                System.out.println("COMMUNITY DOESN'T EXIST!");
+                                continue;
+                            }
                             System.out.println("What do you wanna do? (1) See the News, (2) Add an user, (3) Create a news");
                             int choice2 = input3.nextInt();
                             if(choice2 == 1){
                                 comunities.get(id2).showNews();
                             }else if(choice2 == 2){
+                                int id4 = comunities.get(id2).searchMember(users.get(id).getLogin());
+                                if(!comunities.get(id2).isModerator(id4)){
+                                    continue;
+                                }
                                 int id3 = getIdByName(users);
                                 if(id3 == -1){
                                     System.out.println("USER DOESN'T EXIST!");
                                     continue;
                                 }
                                 users.get(id3).addCommunity(comunities.get(id2).getName());
+                                Member newuser = new Normal(users.get(id3).getName(),users.get(id3).getLogin());
+                                comunities.get(id2).addUser(newuser);
                                 System.out.println("The user was added! \n ");
                             }else{
                                 Scanner input6 = new Scanner(System.in);
@@ -170,7 +179,7 @@ public class Main {
                                 comunities.get(id2).addNews(neews);
                             }
                         } else if (op2 == 6) {
-                            System.out.println("  Searching my user  \n");
+                            System.out.println("  Showing my user  \n");
                             System.out.println("Nome: " + users.get(id).getName() +"| Age: "+users.get(id).getAge() +"| Address: "+users.get(id).getAddress());
                             users.get(id).showFriends();
                             users.get(id).showNews();

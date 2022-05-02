@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class User {
+public class User implements general{
     private String name;
     private String login;
     private String password;
@@ -91,38 +91,38 @@ public class User {
         return false;
     }
     public void showFriends(){
-        System.out.println("Lista de amigos de " + this.name);
+        System.out.println("List of friends of " + this.name);
         for(int i = 0; i < friends.size() ; i++){
             System.out.println(friends.get(i));
         }
         System.out.println("Fim da lista");
     }
     public void showMessages(){
-        System.out.println("Lista de mensagens de " + this.name);
+        System.out.println("List of messeges of " + this.name);
         for(int i = 0; i < msgs.size() ; i++){
             System.out.println(msgs.get(i));
         }
-        System.out.println("Fim da lista");
+        System.out.println("End of the list");
     }
     public void showInvites(){
-        System.out.println("Lista de convites de " + this.name);
+        System.out.println("List of invites of " + this.name);
         for(int i = 0; i < invites.size() ; i++){
             System.out.println(invites.get(i));
         }
-        System.out.println("Fim da lista");
+        System.out.println("End of the list");
     }
     public void showCommunities(){
-        System.out.println("Lista de comunidades de " + this.name);
+        System.out.println("List of communities of " + this.name);
         for(int i = 0; i < comunitys.size() ; i++){
             System.out.println(i+ " - " + comunitys.get(i));
         }
     }
 
     public void showNews(){
-        System.out.println("Feed de noticias de " + this.name);
+        System.out.println("The news feed of " + this.name);
         for(int i = 0; i < news.size() ; i++){
             System.out.println(news.get(i));
         }
-        System.out.println("Fim da lista");
+        System.out.println("End of the list");
     }
 }
