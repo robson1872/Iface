@@ -154,12 +154,14 @@ public abstract class Main {
                                 System.out.println("COMMUNITY DOESN'T EXIST!");
                                 continue;
                             }
+                            int id4 = comunities.get(id2).searchMember(users.get(id).getLogin());
+                            String type = comunities.get(id2).showTypeMember(id4);
+                            System.out.println("Type: " + type);
                             System.out.println("What do you wanna do? (1) See the News, (2) Add an user, (3) Create a news");
                             int choice2 = input3.nextInt();
                             if(choice2 == 1){
                                 comunities.get(id2).showNews();
                             }else if(choice2 == 2){
-                                int id4 = comunities.get(id2).searchMember(users.get(id).getLogin());
                                 if(!comunities.get(id2).isModerator(id4)){
                                     continue;
                                 }

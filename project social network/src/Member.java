@@ -8,4 +8,8 @@ public abstract class Member {
     public String getLogin(){
         return this.login;
     }
+    public String getType(){
+        return "";
+    };
+
 }

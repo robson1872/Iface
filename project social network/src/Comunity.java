@@ -41,7 +41,9 @@ public class Comunity implements general{
     public void addNews(String x){
         this.news.add(x);
     }
-
+    public String showTypeMember(int id){
+        return members.get(id).getType();
+    }
     public void showNews(){
         System.out.println("News of " + this.name);
         for(int i = 0; i < this.news.size(); i++){
