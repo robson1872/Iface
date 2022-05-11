@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Comunity implements general{
+public class Comunity implements General{
     private String name;
     private String creator_user;
     private String description;

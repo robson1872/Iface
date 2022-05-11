@@ -1,3 +1,3 @@
-public interface general {
+public interface General{
     public String getName();
 }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 public abstract class Main {
-    public static int getIdByName(ArrayList< ? extends general > users){
+    public static int getIdByName(ArrayList< ? extends General > users){
         Scanner input22 = new Scanner(System.in);
         System.out.print("Type the name: ");
         String name = input22.nextLine();

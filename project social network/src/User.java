@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class User implements general{
+public class User implements General{
     private String name;
     private String login;
     private String password;
